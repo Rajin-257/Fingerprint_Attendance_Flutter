@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-import '../../../config/constants.dart';
-import '../../../core/offline/sync_service.dart';
-import '../../../data/local/database_helper.dart';
-import '../../../widgets/custom_button.dart';
-import '../../../utils/snackbar_utils.dart';
+import '../../../../config/constants.dart';
+import '../../../../core/offline/sync_service.dart';
+import '../../../../data/local/database_helper.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../utils/snackbar_utils.dart';
 
 class SyncDataScreen extends StatefulWidget {
   const SyncDataScreen({super.key});

@@ -18,6 +18,7 @@ const sectionRoutes = require('./routes/section.routes');
 const courseRoutes = require('./routes/course.routes');
 const studentRoutes = require('./routes/student.routes');
 const attendanceRoutes = require('./routes/attendance.routes');
+const authRoutes = require('./routes/auth.routes');
 
 // Initialize Express app
 const app = express();
@@ -67,6 +68,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // API Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/super-admin', superAdminRoutes);
 app.use('/api/institutes', instituteRoutes);
 app.use('/api/teachers', teacherRoutes);
@@ -88,7 +90,7 @@ app.use(errorHandler);
 db.authenticate()
   .then(() => {
     console.log('Database connection established successfully.');
-    db.sync({ alter: true })
+    db.sync({ alter: true, force: false })
       .then(() => {
         console.log('Database synchronized successfully.');
         app.listen(PORT, () => {

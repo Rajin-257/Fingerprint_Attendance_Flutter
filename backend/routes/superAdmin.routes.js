@@ -1,7 +1,8 @@
 const express = require('express');
 const { body } = require('express-validator');
 const superAdminController = require('../controllers/superAdmin.controller');
-const { verifyToken, isSuperAdmin, validateRequest, checkLicenseKey } = require('../middleware/auth.middleware');
+const { verifyToken, isSuperAdmin, checkLicenseKey } = require('../middleware/auth.middleware');
+const { validateRequest } = require('../middleware/errorHandler.middleware');
 
 const router = express.Router();
 
@@ -243,5 +244,7 @@ router.put(
  *         description: Dashboard statistics
  */
 router.get('/dashboard', superAdminController.getDashboardStats);
+
+console.log('Exported Controller Methods:', module.exports);
 
 module.exports = router;
